@@ -6,6 +6,7 @@ import de.codecentric.injected.HelloWorldHandler
 import de.codecentric.protection.ExtractUserHandler
 import de.codecentric.protection.GreetValidatedUserHandler
 import de.codecentric.simple.SimpleHelloWorldHandler
+import de.codecentric.parseAndSerialize.ParseAndSerializeHandler
 
 ratpack {
 	serverConfig {
@@ -46,5 +47,7 @@ ratpack {
 			all new ExtractUserHandler()
 			get new GreetValidatedUserHandler()
 		}
+
+		post('parseAndSerialize', new ParseAndSerializeHandler())
     }
 }
