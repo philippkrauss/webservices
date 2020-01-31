@@ -1,5 +1,7 @@
 import static ratpack.groovy.Groovy.ratpack
 import com.google.common.io.Resources
+import de.codecentric.errors.ExceptionHandler
+import de.codecentric.errors.GreetingErrorsHandler
 import de.codecentric.injected.GreeterService
 import de.codecentric.injected.GreetingConfig
 import de.codecentric.injected.HelloWorldHandler
@@ -7,6 +9,7 @@ import de.codecentric.protection.ExtractUserHandler
 import de.codecentric.protection.GreetValidatedUserHandler
 import de.codecentric.simple.SimpleHelloWorldHandler
 import de.codecentric.parseAndSerialize.ParseAndSerializeHandler
+import ratpack.error.ServerErrorHandler
 
 ratpack {
 	serverConfig {
@@ -22,6 +25,7 @@ ratpack {
 		binder { b ->
 			b.bind(HelloWorldHandler).asEagerSingleton()
 			b.bind(GreeterService).asEagerSingleton()
+			b.bind(ServerErrorHandler).to(ExceptionHandler)
 		}
 	}
     handlers {
@@ -49,5 +53,7 @@ ratpack {
 		}
 
 		post('parseAndSerialize', new ParseAndSerializeHandler())
+
+		get('errors', new GreetingErrorsHandler())
     }
 }
