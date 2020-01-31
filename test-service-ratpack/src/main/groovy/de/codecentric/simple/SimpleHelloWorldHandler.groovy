@@ -3,7 +3,7 @@ package de.codecentric.simple
 import ratpack.groovy.handling.GroovyContext
 import ratpack.groovy.handling.GroovyHandler
 
-class SimpleHelloWorldHandler extends GroovyHandler{
+class SimpleHelloWorldHandler extends GroovyHandler {
 	@Override
 	protected void handle(GroovyContext context) {
 		String greeting = context.request.queryParams.greeting ?: 'Hello'

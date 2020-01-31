@@ -1,6 +1,5 @@
 package de.codecentric.simple
 
-import de.codecentric.simple.SimpleHelloWorldHandler
 import ratpack.groovy.test.handling.GroovyRequestFixture
 import ratpack.test.handling.RequestFixture
 import spock.lang.Specification

@@ -28,7 +28,7 @@ ratpack {
 			b.bind(ServerErrorHandler).to(ExceptionHandler)
 		}
 	}
-    handlers {
+	handlers {
 		prefix('inline') {
 			get {
 				render 'Hello, World!'
@@ -55,5 +55,5 @@ ratpack {
 		post('parseAndSerialize', new ParseAndSerializeHandler())
 
 		get('errors', new GreetingErrorsHandler())
-    }
+	}
 }
