@@ -1,0 +1,25 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath "io.ratpack:ratpack-gradle:1.7.6"
+	}
+}
+
+group 'de.codecentric'
+version '1.0-SNAPSHOT'
+
+apply plugin: "groovy"
+apply plugin: "io.ratpack.ratpack-groovy"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.5.8'
+	runtime "ch.qos.logback:logback-classic:1.2.3"
+	testCompile "org.spockframework:spock-core:1.2-groovy-2.5"
+	testCompile "net.bytebuddy:byte-buddy:1.9.6" //for mocking of non-interface types
+}
