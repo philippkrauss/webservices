@@ -3,6 +3,8 @@ import com.google.common.io.Resources
 import de.codecentric.injected.GreeterService
 import de.codecentric.injected.GreetingConfig
 import de.codecentric.injected.HelloWorldHandler
+import de.codecentric.protection.ExtractUserHandler
+import de.codecentric.protection.GreetValidatedUserHandler
 import de.codecentric.simple.SimpleHelloWorldHandler
 
 ratpack {
@@ -38,6 +40,11 @@ ratpack {
 		prefix('injected') {
 			get HelloWorldHandler
 			get(':name', HelloWorldHandler)
+		}
+
+		prefix('protection') {
+			all new ExtractUserHandler()
+			get new GreetValidatedUserHandler()
 		}
     }
 }
